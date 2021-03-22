@@ -1,1 +1,1 @@
-h ttps://lisichkasestrichka.github.io/rsschool-cv/
+https://lisichkasestrichka.github.io/rsschool-cv/
