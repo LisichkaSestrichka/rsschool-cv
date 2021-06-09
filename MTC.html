@@ -14,20 +14,32 @@
     text-decoration: underline;}
     body {
       margin-left: 1%;
-
-}
+    }
+    hr{
+      margin: 20px 0;
+    	padding: 0;
+    	height: 2px;
+    	border: none;
+    	border-top: 2px solid #ddd;
+    	border-bottom: 2px solid #000;
+    	background: orange;
+    }
+    h2{
+      font-family: Arial;
+    }
     </style>
   </head>
   <body>
-
+    <h1>MTC</h1>
     <h2 id="Shannon_entropy">Shannon entropy</h2>
+    <h4 style="color: Grey">JavaScript</h4>
 
-    <input id="Text1" type="text" size="1" value="50" style="color: #FF0000; font-weight: bold;">
-<input id="Text2" type="text" size="1" value="25" style="color: #FF0000; font-weight: bold;">
-<input id="Text3" type="text" size="1" value="12,5" style="color: #FF0000; font-weight: bold;">
-<input id="Text4" type="text" size="1" value="12,5" style="color: #FF0000; font-weight: bold;">
-<input id="Text5" type="text" size="1" value="0" style="color: #FF0000; font-weight: bold;">
-<input id="Text6" type="text" size="1" value="0" style="color: #FF0000; font-weight: bold;">
+    <input id="Text1" type="text" size="1" value="50" style="color: #94df6b; font-weight: bold;">
+<input id="Text2" type="text" size="1" value="25" style="color: #94df6b; font-weight: bold;">
+<input id="Text3" type="text" size="1" value="12,5" style="color: #94df6b; font-weight: bold;">
+<input id="Text4" type="text" size="1" value="12,5" style="color: #94df6b; font-weight: bold;">
+<input id="Text5" type="text" size="1" value="0" style="color: #94df6b; font-weight: bold;">
+<input id="Text6" type="text" size="1" value="0" style="color: #94df6b; font-weight: bold;">
 <input id="Button2" type="button" value="H(X)=" onclick="Go1()" >
 <span id="entropy"></span>
 <br/>
@@ -68,7 +80,7 @@ document.getElementById("entropy").innerHTML = entropy;
 </script>
 <hr>
 <h2>Shannon Approximation</h2>
-  <h4 style="color: Grey">JavaScript процентное соотношение символов </h4>
+<h4 style="color: Grey">JavaScript процентное соотношение символов </h4>
 <form>
 <textarea  rows="2" cols="30" name="usrtxt" wrap="hard">
 МАМА МЫЛА РА
