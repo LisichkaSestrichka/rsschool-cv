@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTC</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script type="text/javascript" src="/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=whrlGQ_BUJ_rMVJ1vZEr4-qkSqEM7cLqVEbYXJWlXf-DNu2vOk7pexASlh-gRjEY8NFtUoMTr_xAcLjjNWiWFX7bzgmUhAVvuSJg0iBoexY" charset="UTF-8"></script><style>
+      A {
+    color: #438fb3; }
+    a:-webkit-any-link {
+    cursor: pointer;
+    text-decoration: underline;}
+    body {
+      margin-left: 1%;
+
+}
+    </style>
+  </head>
+  <body>
+
+    <h2 id="Shannon_entropy">Shannon entropy</h2>
+
+    <input id="Text1" type="text" size="1" value="50" style="color: #FF0000; font-weight: bold;">
+<input id="Text2" type="text" size="1" value="25" style="color: #FF0000; font-weight: bold;">
+<input id="Text3" type="text" size="1" value="12,5" style="color: #FF0000; font-weight: bold;">
+<input id="Text4" type="text" size="1" value="12,5" style="color: #FF0000; font-weight: bold;">
+<input id="Text5" type="text" size="1" value="0" style="color: #FF0000; font-weight: bold;">
+<input id="Text6" type="text" size="1" value="0" style="color: #FF0000; font-weight: bold;">
+<input id="Button2" type="button" value="H(X)=" onclick="Go1()" >
+<span id="entropy"></span>
+<br/>
+<br>
+<script>
+function Go1() {
+ var el = new Array(4);
+
+el[0] = parseInt(document.getElementById("Text1").value);
+el[1] = parseInt(document.getElementById("Text2").value);
+el[2] = parseInt(document.getElementById("Text3").value);
+el[3] = parseInt(document.getElementById("Text4").value);
+el[4] = parseInt(document.getElementById("Text5").value);
+el[5] = parseInt(document.getElementById("Text6").value);
+var n = 0;
+var s = 0;
+for (i = 0; i < 6; i++) {
+    s += el[i];
+    if (el[i] > 0)
+    { n++; }
+}
+var x = 0;
+var a = new Array(n);
+var j = 0;
+
+for (i = 0; i < 6; i++) {
+    if (el[i] > 0) a[j++] = el[i] / s;
+}
+var entropy = 0;
+for (j = 0; j < n; j++) {
+    entropy += a[j] * Math.log2(1 / a[j]);
+}
+document.getElementById("entropy").innerHTML = entropy;
+}
+
+
+
+</script>
+<hr>
+<h2>Shannon Approximation</h2>
+  <h4 style="color: Grey">JavaScript процентное соотношение символов </h4>
+<form>
+<textarea  rows="2" cols="30" name="usrtxt" wrap="hard">
+МАМА МЫЛА РА
+</textarea>
+ <br>
+<input type=button onClick="Go()" value="количество" size="333">
+<span id="demo"></span>
+</form>
+<script>
+/* Shannon approximation */
+    var arr = new Array();
+    var percent = new Array();
+    var fullcols;
+function Find(X)
+{
+     for(j=0; j<arr.length;j++)
+     {
+        if (arr[j].letters==X)
+        {
+           arr[j].cols=parseInt(arr[j].cols)+1;
+           return;
+        }
+     }
+     var car = {letters:X, cols:"1"};
+     arr.push(car);
+     return;
+}
+function Go()
+{
+   document.getElementById("demo").innerHTML = "";
+   var str=document.getElementsByName("usrtxt")[0].value;
+   arr= new Array();
+   percent = new Array();
+
+   var ar = str.split("");
+
+
+
+
+   for(i=0;i<ar.length-1;i++)
+   {
+     Find(ar[i]);
+
+   }
+
+
+   for(j=0;j<arr.length;j++)
+   {
+      document.getElementById("demo").innerHTML += "<br><font color='red'>"+arr[j].letters+ "</font>-<font color='green'>" + arr[j].cols+"</font><br><br>";
+   }
+   calculate_Percent();
+   document.getElementById("demo").innerHTML = "";
+   for (j = 0; j < percent.length; j++) {
+       document.getElementById("demo").innerHTML +=
+           "<br><font color='red'>" + percent[j].letters +
+           "</font>-<font color='green'>" + percent[j].percent +
+                     "%</font><br><br>";
+   }
+
+   for (k = 0; k < 100; k++)
+   {
+       document.getElementById("demo").innerHTML += GenerateLetter(98 * Math.random());
+   }
+   //document.getElementById("demo").innerHTML += i;*/
+}
+
+function calculate_Percent()
+{
+    fullcols = 0;
+    for (var i = 0; i < arr.length; i++)
+    {
+        fullcols += parseInt(arr[i].cols);
+    }
+
+
+    for (var i = 0; i < arr.length; i++)
+    {
+        var letter = arr[i].letters;
+        var per=Math.trunc(100*parseFloat(arr[i].cols)/fullcols);
+        var car = { letters: letter, percent: per };
+        percent.push(car);
+    }
+}
+
+function GenerateLetter(P)
+{
+    var X = 0;
+    for( i = 0; i < percent.length; i++)
+    {
+        X += percent[i].percent;
+        if (X > P) {
+            return percent[i].letters;
+        }
+    }
+    return percent[i].letters;
+}
+
+</script>
+  <hr>
+  </body>
+</html>
