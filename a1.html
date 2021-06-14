@@ -45,7 +45,26 @@ function fact(n)
   }
 </pre>
 <p style="font-size: 16px; font-color: blue;"><div id="js" name="a" OnClick="a();">Запустить JS</div></p>
-     <script>
+<h2 style="color: #888240; font-size: 24px;">Balmer peak</h2>
+<input type="text" size="1" id="Weight" value="82">
+<input type="button" size="2" onClick="Go()" value="Calc"> =<br/>
+<span id="Makarenko"></span>
+
+<script>
+    function Go() {
+        var N = document.getElementById("Weight").value;
+        var M = Makarenko(N);
+        document.getElementById("Makarenko").innerHTML = M;
+    }
+    function Makarenko(N) {
+        var mak = N;
+        var alco = 1.35 * mak * 0.7;
+        var drinks = "<br>Cognac - <b><font color='red'>" + Math.round(alco / 0.41) + "</b> gr.</font><br>" +
+                "Port wine - <b><font color='red'>" + Math.round(alco / 0.19) + "</b> gr.</font><br>" +
+                "Dry wine - <b><font color='red'>" + Math.round(alco / 0.12) + "</b> gr.</font><br>" +
+                "Beer - <b><font color='red'>" + Math.round(alco / 0.06) + "</b> gr.</font><br>";
+        return drinks;
+    }
        function a()
 {
             x = prompt("Введите натуральное число");
